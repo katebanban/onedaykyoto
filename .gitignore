@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+.idea/*
+.vscode
+*.sublime*
+node_modules/
+npm-debug.*
+package-lock.json
+*/main.min.js.LICENSE.txt

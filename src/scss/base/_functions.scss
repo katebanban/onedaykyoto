@@ -1,0 +1,75 @@
+// Функции CSS
+@function rem($px) {
+	@return calc(($px / 16) * 1rem);
+}
+
+@function em($px) {
+	@return calc(($px / 16) * 1em);
+}
+
+@function lh($line-height, $font-size) {
+	@return calc(($line-height / $font-size) * 100%);
+}
+
+// Адаптивное свойство (clamp)
+// https://min-max-calculator.9elements.com/
+// $maxSize = максимальный размер (как по макету)
+// $minSize = до какого уменьшать (размер по финальному брейкпоинту)
+// $units = единица измерения ('' ==> по умолчанию в px / 'rem')
+// $fromScreen = ширина полотна макета
+// $toScreen = финальный размер брейкпоинта
+//! clamp не работает с отрицательными или 0 значениями, поэтому нельзя использовать для отрицательного margin
+@function adapt(
+	$maxSize,
+	$minSize,
+	$toScreen: $finishBreakpoint,
+	$fromScreen: $templateWidth,
+	$units: $unitsDefault
+) {
+	$slope: calc(($maxSize - $minSize) / ($fromScreen - $toScreen));
+	$yIntersection: calc((-1 * $toScreen) * $slope + $minSize);
+
+	@if ($yIntersection==0) {
+		$yIntersection: 0.000001;
+	}
+
+	@if ($units== "rem") {
+		$flyValue: #{$yIntersection}rem " + " #{$slope * 100}vw;
+		@return #{"clamp(" #{$minSize}rem "," $flyValue "," #{$maxSize}rem ")"};
+	} @else {
+		$flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+		@return #{"clamp(" rem($minSize) "," $flyValue "," rem($maxSize) ")"};
+	}
+}
+
+@mixin counter($hasZero: true) {
+	counter-reset: order; // order - это имя, которое мы даём сами, можно как угодно назвать: order, number, counter и т.п.
+
+	@if ($hasZero == true) {
+		& > *::before {
+			counter-increment: order; // в качестве значения свойства counter-increment повторяем значение свойства counter-reset (в нашем случае order)
+			content: "0"
+				counter(order); // эта строчка непосредственно создаёт нумерацию с добавлением 0 (нуля) перед каждой цифрой
+		}
+
+		// уточняем, что в нумерации все цифры, начиная с 10, будут писаться без 0 (нуля) перед ними
+		& > *:nth-child(n + 10)::before {
+			content: counter(order);
+		}
+	} @else {
+		& > *::before {
+			counter-increment: order; // в качестве значения свойства counter-increment повторяем значение свойства counter-reset (в нашем случае order)
+			content: counter(
+				order
+			); // эта строчка непосредственно создаёт нумерацию
+		}
+	}
+}
+
+@mixin customFocus($color, $size: 1px) {
+	&:focus-visible {
+		outline: none;
+		outline: $size solid $color;
+		@content;
+	}
+}

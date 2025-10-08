@@ -1,0 +1,22 @@
+[
+	{
+		"link": "#about",
+		"text": "О Киото"
+	},
+	{
+		"link": "#roadmap",
+		"text": "Маршрут"
+	},
+	{
+		"link": "#benefits",
+		"text": "Почему мы"
+	},
+	{
+		"link": "#reviews",
+		"text": "Отзывы"
+	},
+	{
+		"link": "#footer",
+		"text": "Контакты"
+	}
+]

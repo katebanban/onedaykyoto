@@ -1,0 +1,222 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	min-height: 100dvh;
+	//scrollbar-gutter: stable; // чтобы скроллбар нормально себя вёл (возможно вообще уберу)
+}
+
+img,
+svg,
+source,
+picture,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+img {
+	vertical-align: top; // чтобы не было отступа внизу у картинок по умолчанию
+}
+
+a,
+input,
+button,
+textarea,
+select,
+option,
+label {
+	cursor: pointer;
+	font: inherit;
+}
+
+body {
+	font-family: var(--font-main);
+	font-weight: 300; // Light
+	font-size: rem(20);
+
+	color: var(--color-text);
+	background-color: var(--color-white);
+
+	min-width: rem($finishBreakpoint);
+
+	* {
+		line-height: 120%;
+	}
+}
+
+.wrapper {
+	position: relative;
+	overflow: hidden; // возможно придётся убрать вообще
+	min-height: 100%; // возможно понадобится 100dvh
+
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 1 auto;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	max-width: calc(var(--container-width) + (var(--container-gap) * 2));
+	padding: 0 var(--container-gap);
+	margin: 0 auto;
+}
+
+//* COMPONENTS
+
+.no-scroll {
+	//overflow: hidden;
+}
+
+.logo {
+	transition: all 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+.btn {
+	text-decoration: none;
+
+	position: relative;
+	padding: rem(12) rem(24);
+
+	transition: all 0.5s;
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+
+		transition: all 0.5s;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			width: 50%;
+			height: 100%;
+			background-color: var(--color-accent);
+			transition: all 0.5s;
+		}
+
+		&::before {
+			left: 0;
+		}
+
+		&::after {
+			right: 0;
+		}
+	}
+
+	&__text {
+		position: relative;
+		z-index: 2;
+		color: var(--color-white);
+
+		transition: all 0.5s;
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: rem(2);
+		background-color: var(--color-accent);
+		transition: all 0.5s;
+	}
+
+	&::before {
+		top: 0;
+		left: 0;
+	}
+
+	&::after {
+		bottom: 0;
+		right: 0;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			.btn__bg {
+				&::before,
+				&::after {
+					width: 0;
+				}
+			}
+
+			.btn__text {
+				color: var(--color-accent);
+			}
+
+			&::before,
+			&::after {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.btn-label {
+	text-decoration: none;
+
+	padding: rem(28);
+	background-color: var(--color-white);
+	color: var(--color-text);
+
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+
+	transition: all .3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--color-accent);
+
+			.btn-label__icon {
+				svg path {
+					fill: var(--color-accent);
+				}
+			}
+		}
+	}
+
+	&__text {
+	}
+
+	&__icon {
+		svg {
+			display: block;
+
+			path {
+				transition: all .3s;
+			}
+		}
+	}
+}

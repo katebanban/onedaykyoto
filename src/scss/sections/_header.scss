@@ -1,0 +1,51 @@
+.header {
+	padding: rem(34) 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 55;
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(48);
+	}
+
+	&__logo {
+	}
+
+	&__menu {
+		margin-left: auto;
+	}
+
+	&__btn {
+	}
+}
+
+.menu {
+	&__list {
+		list-style-type: none;
+
+		display: flex;
+		align-items: center;
+		gap: rem(24);
+	}
+
+	&__item {
+	}
+
+	&__link {
+		text-decoration: none;
+
+		color: var(--color-white);
+		transition: all .3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+}
