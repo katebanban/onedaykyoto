@@ -31,7 +31,7 @@ import autoprefixer from "gulp-autoprefixer"; // создаёт вендерны
 import groupCssMedia from "gulp-group-css-media-queries"; // группирует медиазапросы в css
 //import cssShorthand from "gulp-shorthand"; // сокращённое написание свойств (например объединяет font-family, font-size и font-weight в одно свойство font)
 import cssClean from "gulp-clean-css"; // лучше минимизирует css
-import avifCss from "gulp-avif-css"; // добавляет форматы avif и webp в стили для BG
+import avifCss from "./gulp/plugins/gulp-avif-css.js"; // добавляет форматы avif и webp в стили для BG === gulp-avif-css
 
 //* JS
 import webpack from "webpack-stream"; // позволяет использовать импорты и минимизировать JS (npm i -D webpack webpack-stream)

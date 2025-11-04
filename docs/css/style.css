@@ -2407,6 +2407,28 @@ body * {
 	margin: 0 auto;
 }
 
+.un-container {
+	--content-width: 500px;
+	--gap: 30px;
+	display: flex;
+	-moz-column-gap: var(--gap);
+	column-gap: var(--gap);
+	padding-right: max(var(--container-gap), (100% - var(--container-width)) / 2);
+}
+
+.un-container--padding-left {
+	padding-right: unset;
+	padding-left: max(var(--container-gap), (100% - var(--container-width)) / 2);
+}
+
+.un-container__full {
+	flex: 0 1 100%;
+}
+
+.un-container__content {
+	flex: 0 0 var(--content-width);
+}
+
 .logo {
 	transition: all 0.3s;
 }
@@ -2494,6 +2516,27 @@ body * {
 	transition: all 0.3s;
 }
 
+.title-section {
+	font-family: var(--font-title);
+	font-weight: 500;
+	font-size: 3rem;
+	line-height: 120%;
+	color: var(--color-text);
+	padding-bottom: 0.75rem;
+	margin-bottom: 3rem;
+	position: relative;
+}
+
+.title-section::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.125rem;
+	background: var(--color-grey);
+}
+
 .header {
 	padding: 2.125rem 0;
 	position: absolute;
@@ -2535,10 +2578,10 @@ body * {
 	position: relative;
 }
 .webp .hero {
-	background: url("../images/hero/bg.webp");
+	background-image: url("../images/hero/bg.webp");
 }
 .avif .hero {
-	background: url("../images/hero/bg.avif");
+	background-image: url("../images/hero/bg.avif");
 }
 
 .hero__body {
@@ -2590,6 +2633,80 @@ body * {
 	text-decoration: none;
 	color: inherit;
 	transition: all 0.3s;
+}
+
+.about {
+	padding: 3.75rem 0;
+	position: relative;
+}
+
+.about .un-container {
+	--content-width: 28.9375rem;
+	--gap: 3rem;
+}
+
+.about__text span {
+	font-weight: 700;
+	color: var(--color-accent);
+}
+
+.about__text:not(:last-child) {
+	margin-bottom: 3rem;
+}
+
+.about__list-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+}
+
+.about__list {
+	list-style-type: none;
+}
+
+.about__list--odd {
+	text-align: right;
+	position: relative;
+}
+
+.about__list--odd::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -2.125rem;
+	width: 0.125rem;
+	height: 100%;
+	background: var(--color-grey);
+}
+
+.about__item:not(:last-child) {
+	margin-bottom: 2rem;
+}
+
+.about__item span {
+	display: block;
+	font-family: var(--font-title);
+	font-weight: 700;
+	font-size: 4rem;
+	line-height: 100%;
+	color: var(--color-accent);
+	margin-bottom: 0.625rem;
+}
+
+.about__img {
+	height: 31.375rem;
+	position: relative;
+}
+
+.about__img img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
 }
 
 @media (hover: hover) {
