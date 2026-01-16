@@ -1,39 +1,30 @@
 import Swiper from 'swiper/bundle';
 
 export function initSliders() {
-	const catalogSlider = new Swiper('.catalog-slider', {
+	const roadmapSlider = new Swiper('.roadmap-slider', {
 		slidesPerView: 'auto',
-		//grabCursor: true,
-
-		scrollbar: {
-			el: ".catalog__slider-scroll",
-			draggable: true
-		}
-	});
-
-	const benefitsSwiper = new Swiper('.benefits-swiper', {
-		grabCursor: true,
-		spaceBetween: 48,
+		spaceBetween: 32,
 		loop: true,
 		autoplay: {
-			delay: 4000
-		},
-
-		pagination: {
-			el: ".benefits__pagination",
-			clickable: true
+			delay: 3000
 		}
 	});
 
-	const reviewsSwiper = new Swiper('.reviews-swiper', {
+	const reviewsSlider = new Swiper('.reviews-slider', {
+		slidesPerView: 1,
 		autoHeight: true,
 		grabCursor: true,
-		spaceBetween: 48,
+		spaceBetween: 96, // 2 раза по 48
 		loop: true,
+		autoplay: {
+			delay: 5000
+		},
 
-		navigation: {
-			nextEl: '.reviews-swiper__btn-next',
-			prevEl: '.reviews-swiper__btn-prev',
+		breakpoints: {
+			// when window width is >= 769px
+			769: {
+				slidesPerView: 2
+			}
 		}
 	});
 }

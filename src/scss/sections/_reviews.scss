@@ -1,0 +1,85 @@
+.reviews {
+	padding-bottom: rem(60);
+	padding-top: adapt(60, 30);
+
+	&__title {
+	}
+
+	&__img {
+		min-height: rem(440);
+		position: relative;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.un-container {
+		--content-width: #{rem(729)};
+		--gap: #{rem(48)};
+
+		@media (max-width: em(1200)) {
+			flex-wrap: wrap;
+			padding-left: 0;
+		}
+	}
+
+	.un-container__content {
+		@media (max-width: em(1200)) {
+			padding-inline: max(var(--container-gap), (100% - var(--container-width)) / 2);
+			width: 100%;
+			max-width: 100%;
+			flex: 1 1 100%;
+
+			&:not(:last-child) {
+				margin-bottom: rem(48);
+			}
+		}
+	}
+}
+
+.reviews-slider {
+	&__wrapper {
+	}
+}
+
+.reviews-slide {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: rem(-48);
+		width: rem(2);
+		height: 100%;
+		background: var(--color-grey);
+	}
+
+	&__wrapper {
+	}
+
+	&__title {
+		color: var(--color-accent);
+
+		&:not(:last-child) {
+			margin-bottom: rem(24);
+		}
+	}
+
+	&__text {
+		&:not(:last-child) {
+			margin-bottom: rem(24);
+		}
+	}
+
+	&__name {
+		font-size: rem(18);
+		font-weight: 700;
+	}
+}

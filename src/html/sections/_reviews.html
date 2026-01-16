@@ -1,0 +1,17 @@
+<section class="reviews" id="reviews">
+	<div class="container">
+		<h2 class="reviews__title title-section">Впечатления наших гостей</h2>
+	</div>
+	<div class="un-container un-container--padding-left">
+		<div class="un-container__content">
+			<div class="swiper reviews-slider">
+				<div class="swiper-wrapper reviews-slider__wrapper">
+					@@loop('../components/_reviews-slide.html', 'data/reviews-slider.json')
+				</div>
+			</div>
+		</div>
+		<div class="un-container__full reviews__img jarallax">
+			<img class="jarallax-img" src="images/reviews/reviews-image.jpg" alt="человек в розовой куртке в бамбуковом лесу">
+		</div>
+	</div>
+</section>

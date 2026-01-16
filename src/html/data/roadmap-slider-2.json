@@ -1,0 +1,27 @@
+[
+	{
+		"imgSrc": "images/roadmap/02/image-1.jpg",
+		"imgSrcBig": "images/roadmap/02/image-1-big.jpg",
+		"imgSources": "images/roadmap/02/image-1-big.avif;images/roadmap/02/image-1-big.webp"
+	},
+	{
+		"imgSrc": "images/roadmap/02/image-2.jpg",
+		"imgSrcBig": "images/roadmap/02/image-2-big.jpg",
+		"imgSources": "images/roadmap/02/image-2-big.avif;images/roadmap/02/image-2-big.webp"
+	},
+	{
+		"imgSrc": "images/roadmap/02/image-3.jpg",
+		"imgSrcBig": "images/roadmap/02/image-3-big.jpg",
+		"imgSources": "images/roadmap/02/image-3-big.avif;images/roadmap/02/image-3-big.webp"
+	},
+	{
+		"imgSrc": "images/roadmap/02/image-4.jpg",
+		"imgSrcBig": "images/roadmap/02/image-4-big.jpg",
+		"imgSources": "images/roadmap/02/image-4-big.avif;images/roadmap/02/image-4-big.webp"
+	},
+	{
+		"imgSrc": "images/roadmap/02/image-5.jpg",
+		"imgSrcBig": "images/roadmap/02/image-5-big.jpg",
+		"imgSources": "images/roadmap/02/image-5-big.avif;images/roadmap/02/image-5-big.webp"
+	}
+]

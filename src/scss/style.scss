@@ -6,8 +6,15 @@
 @import "./base/_vars.scss";
 @import "./base/_global.scss";
 
+// SECTIONS
+
 @import "sections/_header.scss";
 
 @import "sections/_hero.scss";
 @import "sections/_about.scss";
+@import "sections/_roadmap.scss";
 @import "sections/_benefits.scss";
+@import "sections/_reviews.scss";
+@import "sections/_start.scss";
+
+@import "sections/_footer.scss";

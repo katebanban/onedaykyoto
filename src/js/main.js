@@ -1,44 +1,52 @@
 import "gulp-avif-css/plugin.js"; //! НЕ УДАЛЯТЬ (помогает узнать, поддерживает ли браузер avif и webp)
 
-//import { initMenu } from "./js_modules/menu.js";
-//import { autoCalc } from "./js_modules/autoCalc.js";
+import { initMenu } from "./js_modules/menu.js";
+import { autoCalc } from "./js_modules/autoCalc.js";
 import { smoothScroll } from "./js_modules/smoothScroll.js";
-//import { initSliders } from "./js_modules/sliders.js";
-//import { loader } from "./js_modules/loader.js";
+import { initSliders } from "./js_modules/sliders.js";
 
-//import { Fancybox } from "@fancyapps/ui";
+import { jarallax } from "jarallax";
 
-//Fancybox.bind("[data-fancybox]", {
-//	Images: {
-//		content: (_ref, slide) => {
-//			if (slide.triggerEl.hasAttribute('data-sources')) {
-//				let rez = "<picture>";
+jarallax(document.querySelectorAll('.jarallax'), {
+	speed: 0.2,
+});
 
-//				const alt = slide.alt || '';
+import { Fancybox } from "@fancyapps/ui";
 
-//				slide.sources.split(";").map((source, index) => {
-//					rez += `<source srcset="${source}"/>`;
-//				});
+Fancybox.bind("[data-fancybox]", {
+	Images: {
+		content: (_ref, slide) => {
+			if (slide.triggerEl.hasAttribute('data-sources')) {
+				let rez = "<picture>";
 
-//				rez += `<img src="${slide.src}" alt="${alt}"/>`;
+				const alt = slide.alt || '';
 
-//				rez += "</picture>";
+				slide.sources.split(";").map((source, index) => {
+					rez += `<source srcset="${source}"/>`;
+				});
 
-//				return rez;
-//			}
-//		},
-//	},
-//});
+				rez += `<img src="${slide.src}" alt="${alt}"/>`;
 
-//initMenu();
-//autoCalc();
+				rez += "</picture>";
+
+				return rez;
+			}
+		},
+	},
+});
+
+initMenu();
+autoCalc();
 smoothScroll();
-//initSliders();
-//loader();
+initSliders();
 
 //* ДАТА (год создания/запуска проекта - актуальный год)
-//const year = Number(document.querySelector('[data-year]').innerText);
-//const currentYear = new Date().getFullYear();
+//const year = Number(document?.querySelector('[data-year]')?.innerText);
+const yearEl = document.querySelector('[data-year]');
+if (yearEl) {
+	const year = yearEl.innerText;
+	const currentYear = new Date().getFullYear();
 
-//if (year < currentYear) document.querySelector('[data-year]').innerText = `${year} - ${currentYear}`;
-//if (year > currentYear) document.querySelector('[data-year]').innerText = currentYear;
+	if (year < currentYear) document.querySelector('[data-year]').innerText = `${year} - ${currentYear}`;
+	if (year > currentYear) document.querySelector('[data-year]').innerText = currentYear;
+}

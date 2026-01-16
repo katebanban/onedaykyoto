@@ -3,35 +3,37 @@
 export function smoothScroll() {
 	const allLinks = document.querySelectorAll('a');
 
-	allLinks.forEach((link) => {
-		//! если ссылка с классом .no-smooth-scroll, то не будет плавно скролить
-		if (!link.classList.contains('no-smooth-scroll')) {
-			link.addEventListener('click', (e) => {
-				const href = link.getAttribute('href');
+	if (allLinks.length) {
+		allLinks.forEach((link) => {
+			//! если ссылка с классом .no-smooth-scroll, то не будет плавно скролить
+			if (!link.classList.contains('no-smooth-scroll')) {
+				link.addEventListener('click', (e) => {
+					const href = link.getAttribute('href');
 
-				if (href === '#') {
-					e.preventDefault();
+					if (href === '#') {
+						e.preventDefault();
 
-					window.scrollTo({
-						top: 0,
-						behavior: 'smooth',
-					})
-				}
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth',
+						})
+					}
 
-				if (href !== '#' && href.startsWith('#')) {
-					e.preventDefault();
+					if (href !== '#' && href.startsWith('#')) {
+						e.preventDefault();
 
-					// находим секцию, на которую ведёт нажатая ранее ссылка, по href (адресу)
-					const sectionEl = document.querySelector(href);
-					// находим координаты самого верха (начала) секции
-					const sectionElPosition = sectionEl.getBoundingClientRect().top;
+						// находим секцию, на которую ведёт нажатая ранее ссылка, по href (адресу)
+						const sectionEl = document.querySelector(href);
+						// находим координаты самого верха (начала) секции
+						const sectionElPosition = sectionEl.getBoundingClientRect().top;
 
-					window.scrollBy({
-						top: sectionElPosition,
-						behavior: 'smooth',
-					})
-				}
-			})
-		}
-	})
+						window.scrollBy({
+							top: sectionElPosition,
+							behavior: 'smooth',
+						})
+					}
+				})
+			}
+		})
+	}
 }

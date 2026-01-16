@@ -1,5 +1,5 @@
 .benefits {
-	padding: rem(60) 0;
+	padding-block: adapt(60, 30);
 
 	&__title {
 	}
@@ -7,11 +7,31 @@
 	.un-container {
 		--content-width: #{rem(463)};
 		--gap: #{rem(48)};
+
+		@media (max-width: em(1024)) {
+			flex-wrap: wrap-reverse;
+			padding-right: 0;
+		}
+	}
+
+	.un-container__content {
+		@media (max-width: em(1024)) {
+			padding-inline: max(var(--container-gap), (100% - var(--container-width)) / 2);
+			width: 100%;
+			max-width: 100%;
+			flex: 1 1 100%;
+		}
 	}
 
 	&__img {
 		height: rem(612);
 		position: relative;
+
+		@media (max-width: em(1024)) {
+			&:not(:last-child) {
+				margin-top: rem(48);
+			}
+		}
 
 		img {
 			position: absolute;

@@ -58,7 +58,7 @@ body {
 
 .wrapper {
 	position: relative;
-	overflow: hidden; // возможно придётся убрать вообще
+	//overflow: hidden; // убрала, потому что в секции roadmap не работал position: sticky;
 	min-height: 100%; // возможно понадобится 100dvh
 
 	display: flex;
@@ -97,22 +97,28 @@ body {
 
 	&__content {
 		flex: 0 0 var(--content-width);
+		max-width: var(--content-width);
 	}
 }
 
 //* COMPONENTS
 
 .no-scroll {
-	//overflow: hidden;
+	overflow: hidden;
 }
 
 .logo {
 	transition: all 0.3s;
+	flex-shrink: 0;
 
 	@media (any-hover: hover) {
 		&:hover {
 			transform: scale(1.1);
 		}
+	}
+
+	@media (max-width: em(768)) {
+		max-width: rem(120);
 	}
 }
 
@@ -202,6 +208,10 @@ body {
 			}
 		}
 	}
+
+	&--big {
+		padding: rem(16) rem(32);
+	}
 }
 
 .btn-label {
@@ -229,10 +239,29 @@ body {
 		}
 	}
 
+	@media (max-width: em(768)) {
+		padding: rem(20);
+	}
+
+	@media (max-width: em(576)) {
+		padding: rem(16);
+	}
+
 	&__text {
+		@media (max-width: em(768)) {
+			font-size: rem(18);
+		}
+
+		@media (max-width: em(576)) {
+			font-size: rem(16);
+		}
 	}
 
 	&__icon {
+		@media (max-width: em(576)) {
+			width: rem(20);
+		}
+
 		svg {
 			display: block;
 
@@ -246,7 +275,7 @@ body {
 .title-section {
 	font-family: var(--font-title);
 	font-weight: 500;
-	font-size: rem(48);
+	font-size: adapt(48, 34);
 	line-height: 120%;
 	color: var(--color-text);
 
@@ -254,6 +283,10 @@ body {
 	margin-bottom: rem(48);
 
 	position: relative;
+
+	@media (max-width: em(1024)) {
+		margin-bottom: rem(32);
+	}
 
 	&::after {
 		content: "";
@@ -268,4 +301,38 @@ body {
 
 .title-3 {
 	font-size: rem(24);
+
+	@media (max-width: em(576)) {
+		font-size: rem(22);
+	}
+}
+
+.label-icon-1 {
+	&::before {
+		background: url("/images/roadmap/icons/morning-icon.svg");
+	}
+}
+
+.label-icon-2 {
+	&::before {
+		background: url("/images/roadmap/icons/afternoon-icon.svg");
+	}
+}
+
+.label-icon-3 {
+	&::before {
+		background: url("/images/roadmap/icons/evening-icon.svg");
+	}
+}
+
+.title-right {
+	text-align: right;
+	justify-content: flex-start;
+	flex-direction: row-reverse;
+}
+
+.add-top {
+	@media (max-width: em(1200)) {
+		margin-top: rem(32);
+	}
 }
