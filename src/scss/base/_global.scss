@@ -309,19 +309,19 @@ body {
 
 .label-icon-1 {
 	&::before {
-		background: url("/images/roadmap/icons/morning-icon.svg");
+		background: url("../images/roadmap/icons/morning-icon.svg");
 	}
 }
 
 .label-icon-2 {
 	&::before {
-		background: url("/images/roadmap/icons/afternoon-icon.svg");
+		background: url("../images/roadmap/icons/afternoon-icon.svg");
 	}
 }
 
 .label-icon-3 {
 	&::before {
-		background: url("/images/roadmap/icons/evening-icon.svg");
+		background: url("../images/roadmap/icons/evening-icon.svg");
 	}
 }
 

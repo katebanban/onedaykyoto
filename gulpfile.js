@@ -86,7 +86,7 @@ function copyFilesToDist() {
 }
 
 function html() {
-	return src([`${srcFolder}/html/*.html`])
+	return src([`${srcFolder}/html/**/*.html`])
 		.pipe(plumberNotify('HTML'))
 		.pipe(fileInclude())
 		.pipe(
@@ -123,7 +123,7 @@ function html() {
 }
 
 function htmlBuild() {
-	return src([`${srcFolder}/html/*.html`])
+	return src([`${srcFolder}/html/**/*.html`])
 		.pipe(plumberNotify('HTML BUILD'))
 		.pipe(fileInclude())
 		.pipe(

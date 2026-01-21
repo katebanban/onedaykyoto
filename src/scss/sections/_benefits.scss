@@ -24,7 +24,7 @@
 	}
 
 	&__img {
-		height: rem(612);
+		min-height: rem(612);
 		position: relative;
 
 		@media (max-width: em(1024)) {

@@ -41,13 +41,10 @@
 
 	&__list-box {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		gap: rem(32);
 
 		@media (max-width: em(1024)) {
 			justify-content: center;
-			gap: rem(64);
 		}
 
 		@media (max-width: em(576)) {
@@ -60,9 +57,18 @@
 	&__list {
 		list-style-type: none;
 
+		flex: 0 1 50%;
+		padding-left: rem(32);
+
+		@media (max-width: em(576)) {
+			padding: unset;
+		}
+
 		&--odd {
 			text-align: right;
 			position: relative;
+			padding-left: unset;
+			padding-right: rem(34);
 
 			@media (max-width: em(576)) {
 				text-align: inherit;
@@ -72,7 +78,7 @@
 				content: "";
 				position: absolute;
 				top: 0;
-				right: rem(-34);
+				right: 0;
 				width: rem(2);
 				height: 100%;
 				background: var(--color-grey);
@@ -106,7 +112,7 @@
 	}
 
 	&__img {
-		height: rem(502);
+		min-height: rem(502);
 		position: relative;
 
 		@media (max-width: em(1024)) {

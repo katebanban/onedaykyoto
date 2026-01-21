@@ -6,14 +6,11 @@
 
 	<body>
 		<div class="wrapper">
-			@@include('sections/_header.html')
+			@@include('sections/_header.html' { 'btn' : 'Начать путешествие',})
 			<main class="main">
-				@@include('sections/_hero.html')
-				@@include('sections/_about.html')
-				@@include('sections/_roadmap.html')
-				@@include('sections/_benefits.html')
-				@@include('sections/_reviews.html')
-				@@include('sections/_start.html')
+				@@include('sections/_hero.html') @@include('sections/_about.html')
+				@@include('sections/_roadmap.html') @@include('sections/_benefits.html')
+				@@include('sections/_reviews.html') @@include('sections/_start.html')
 			</main>
 			@@include('sections/_footer.html')
 		</div>
